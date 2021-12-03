@@ -96,6 +96,9 @@ fi
 if [ $FEDORA -eq 1 ]; then
     # FLATPAK is already installed by default
     echo "FLATPAK is already installed by default"
+    echo "ADDING FLATHUB REMOTE"
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    flatpak update
     # Snap is not installed by defualt
     echo "INSTALLING SNAP"
     sudo dnf install snapd -y
