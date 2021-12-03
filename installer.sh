@@ -76,6 +76,11 @@ fi
 if [ $LINUXMINT -eq 1 ]; then
     # FLATPAK is already installed by default
     echo "FLATPAK is already installed by default"
+    # Snap is not installed by defualt
+    echo "INSTALLING SNAP"
+    sudo rm /etc/apt/preferences.d/nosnap.pref
+    sudo apt update
+    sudo apt install snapd -y
 fi
 
 # UBUNTU
@@ -91,6 +96,11 @@ fi
 if [ $FEDORA -eq 1 ]; then
     # FLATPAK is already installed by default
     echo "FLATPAK is already installed by default"
+    # Snap is not installed by defualt
+    echo "INSTALLING SNAP"
+    sudo dnf install snapd -y
+    # Snaps using classic confinement, such as code editors, also require a symlink from /var/lib/snapd/snap to /snap.
+    sudo ln -s /var/lib/snapd/snap /snap
 fi
 
 # FLATPAK INSTALLS
