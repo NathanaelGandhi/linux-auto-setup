@@ -21,9 +21,9 @@ Alternativley if you are familiar with using git, in a terminal run
 ``` git clone https://github.com/NathanaelGandhi/linux-auto-setup.git ```
 
 ## 2. Running the script
-Open a terminal and change directory (type: cd pathToFolder) to the downloaded folder. 
+Open a terminal and change directory (type: cd pathToFolder) to the downloaded folder. (If you downloaded the zip, first extract that)
 
-``` cd linux-auto-setup ```
+``` cd linux-auto-setup ``` OR ``` cd Downloads/linux-auto-setup-main ```
 
 Now run the installer.sh script
 
@@ -34,10 +34,10 @@ Please check the table below for compatability with linux distributions.
 
 | Distro | Assumed Working | Confirmed Working |
 | ------ | ---------------- | ----------------- |
-| LinuxMint 20.2 Cinnamon| Yes | - |
+| LinuxMint 20.2 Cinnamon| Yes | 4/12/2021 |
 | Ubuntu 20.04 LTS | Yes | 04/12/2021 |
 | Ubuntu 21.10 | Yes | - |
-| Fedora 35 Workstation | Yes | - |
+| Fedora 35 Workstation | Yes | 04/12/2021 |
 
 ## Notes
 - Flatpak has been preferred where possible
