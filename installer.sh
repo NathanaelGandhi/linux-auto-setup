@@ -89,22 +89,22 @@ if [ $UBUNTU -eq 1 ]; then
     echo "INSTALLING FLATPAK"
     sudo apt install flatpak -y
     sudo apt install gnome-software-plugin-flatpak -y
-    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 fi
 
 # FEDORA
 if [ $FEDORA -eq 1 ]; then
     # FLATPAK is already installed by default
     echo "FLATPAK is already installed by default"
-    echo "ADDING FLATHUB REMOTE"
-    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    flatpak update
     # Snap is not installed by defualt
     echo "INSTALLING SNAP"
     sudo dnf install snapd -y
     # Snaps using classic confinement, such as code editors, also require a symlink from /var/lib/snapd/snap to /snap.
     sudo ln -s /var/lib/snapd/snap /snap
 fi
+
+echo "ADDING FLATHUB REMOTE"
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak update -y
 
 # FLATPAK INSTALLS
 echo "FLATPAK INSTALLS"
