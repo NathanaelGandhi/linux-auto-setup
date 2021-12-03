@@ -146,6 +146,7 @@ flatpak install flathub org.gnome.Connections -y
 echo "SNAP INSTALLS"
 sudo snap install brave
 
+echo "CREATING GIT DIRECTORY"
 mkdir -p ~/git
 
 echo "Hamachi needs manual install"
