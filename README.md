@@ -35,7 +35,7 @@ Please check the table below for compatability with linux distributions.
 | Distro | Assumed Working | Confirmed Working |
 | ------ | ---------------- | ----------------- |
 | LinuxMint 20.2 Cinnamon| Yes | - |
-| Ubuntu 20.04 LTS | Yes | - |
+| Ubuntu 20.04 LTS | Yes | 04/12/2021 |
 | Ubuntu 21.10 | Yes | - |
 | Fedora 35 Workstation | Yes | - |
 
