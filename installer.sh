@@ -126,7 +126,7 @@ flatpak install flathub com.github.phase1geo.minder -y
 flatpak install flathub com.jgraph.drawio.desktop -y
 
 # Engineering
-flatpak install flathub com.visualstudio.code -y
+flatpak install flathub com.vscodium.codium
 flatpak install flathub org.qgis.qgis/x86_64/stable -y
 flatpak install flathub org.freecadweb.FreeCAD -y
 flatpak install flathub org.kicad.KiCad -y
