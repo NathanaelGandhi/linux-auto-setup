@@ -136,6 +136,7 @@ flatpak install flathub org.videolan.VLC -y
 flatpak install flathub com.github.PintaProject.Pinta -y
 flatpak install flathub org.gimp.GIMP -y
 flatpak install flathub org.kde.kdenlive -y
+flatpak install flathub com.obsproject.Studio -y
 
 # Other
 flatpak install flathub com.spotify.Client -y
