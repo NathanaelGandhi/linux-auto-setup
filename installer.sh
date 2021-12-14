@@ -121,7 +121,7 @@ flatpak install flathub com.sindresorhus.Caprine -y	# FB Messenger
 flatpak install flathub com.dropbox.Client -y
 flatpak install flathub com.github.alainm23.planner -y
 flatpak install flathub com.github.subhadeepjasu.pebbles -y
-flatpak install flathub org.gnome.Solanum -y
+#flatpak install flathub org.gnome.Solanum -y
 flatpak install flathub com.github.phase1geo.minder -y
 flatpak install flathub com.jgraph.drawio.desktop -y
 
