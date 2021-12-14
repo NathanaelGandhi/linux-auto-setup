@@ -131,6 +131,7 @@ flatpak install flathub org.qgis.qgis/x86_64/stable -y
 flatpak install flathub org.freecadweb.FreeCAD -y
 flatpak install flathub org.kicad.KiCad -y
 flatpak install flathub org.fritzing.Fritzing -y
+flatpak install flathub cc.arduino.arduinoide -y
 
 # Video & Graphics
 flatpak install flathub org.videolan.VLC -y
