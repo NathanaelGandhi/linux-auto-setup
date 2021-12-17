@@ -108,6 +108,10 @@ echo "ADDING FLATHUB REMOTE"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak update -y
 
+# SNAP INSTALLS
+echo "SNAP INSTALLS"
+sudo snap install brave
+
 # FLATPAK INSTALLS
 echo "FLATPAK INSTALLS"
 # Communication
@@ -149,10 +153,6 @@ flatpak install flathub org.gnome.Connections -y
 #flatpak install flathub me.kozec.syncthingtk -y # Havent got this gui working properly. WEBUI seems suitable for now
 #flatpak install flathub org.gnome.Fractal -y # Unsure if I want this yet
 #flatpak install flathub org.gnome.Boxes -y	# Try this instead of virtualbox - Not yet verified as an alternative
-
-# SNAP INSTALLS
-echo "SNAP INSTALLS"
-sudo snap install brave
 
 echo "CREATING GIT DIRECTORY"
 mkdir -p ~/git
