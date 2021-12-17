@@ -89,6 +89,8 @@ if [ $UBUNTU -eq 1 ]; then
     echo "INSTALLING FLATPAK"
     sudo apt install flatpak -y
     sudo apt install gnome-software-plugin-flatpak -y
+    echo "INSTALLING GNOME SESSION & GDM3"
+    sudo apt install gnome-session gdm3 -y
 fi
 
 # FEDORA
