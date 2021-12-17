@@ -137,7 +137,7 @@ flatpak install flathub org.qgis.qgis/x86_64/stable -y
 flatpak install flathub org.freecadweb.FreeCAD -y
 flatpak install flathub org.kicad.KiCad -y
 flatpak install flathub org.fritzing.Fritzing -y
-flatpak install flathub cc.arduino.arduinoide -y
+#flatpak install flathub cc.arduino.arduinoide -y
 
 # Video & Graphics
 flatpak install flathub org.videolan.VLC -y
@@ -160,5 +160,7 @@ mkdir -p ~/git
 echo "Hamachi needs manual install"
 echo "ROS needs manual install"
 echo "VirtualBox needs manual install"
+echo "Teensyduino needs manual install. Does NOT work with flatpak Arduino"
+echo "Arduino needs manual install. Teensyduino requirement"
 echo "----"
 echo "DONE"
