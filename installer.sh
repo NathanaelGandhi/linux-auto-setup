@@ -124,6 +124,7 @@ flatpak install flathub com.getmailspring.Mailspring -y
 flatpak install flathub com.sindresorhus.Caprine -y	# FB Messenger
 
 # Productivity
+flatpak install flathub org.libreoffice.LibreOffice -y
 flatpak install flathub com.dropbox.Client -y
 flatpak install flathub com.github.alainm23.planner -y
 flatpak install flathub com.github.subhadeepjasu.pebbles -y
