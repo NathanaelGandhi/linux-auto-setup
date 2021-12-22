@@ -91,6 +91,10 @@ if [ $UBUNTU -eq 1 ]; then
     sudo apt install gnome-software-plugin-flatpak -y
     echo "INSTALLING GNOME SESSION & GDM3"
     sudo apt install gnome-session gdm3 -y
+    # echo "INSTALLING GUAKE"
+    # sudo apt install guake -y
+    echo "INSTALLING CLANG"
+    sudo apt install clang -y
 fi
 
 # FEDORA
