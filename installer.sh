@@ -93,8 +93,9 @@ if [ $UBUNTU -eq 1 ]; then
     sudo apt install gnome-session gdm3 -y
     # echo "INSTALLING GUAKE"
     # sudo apt install guake -y
-    echo "INSTALLING CLANG"
-    sudo apt install clang -y
+    # echo "INSTALLING CLANG"
+    # sudo apt install clang -y
+    # sudo apt install clang-format -y
 fi
 
 # FEDORA
