@@ -89,8 +89,10 @@ if [ $UBUNTU -eq 1 ]; then
     echo "INSTALLING FLATPAK"
     sudo apt install flatpak -y
     sudo apt install gnome-software-plugin-flatpak -y
-    echo "INSTALLING GNOME SESSION & GDM3"
+    echo "INSTALLING GNOME SESSION & GDM3 for default gnome experience"
     sudo apt install gnome-session gdm3 -y
+    echo "INSTALLING CHROME-GNOME-SHELL for gnome extensions"
+    sudo apt install chrome-gnome-shell -y
     # echo "INSTALLING GUAKE"
     # sudo apt install guake -y
     # echo "INSTALLING CLANG"
@@ -150,6 +152,7 @@ flatpak install flathub org.videolan.VLC -y
 flatpak install flathub com.github.PintaProject.Pinta -y
 flatpak install flathub org.gimp.GIMP -y
 flatpak install flathub org.kde.kdenlive -y
+flatpak install flathub org.blender.Blender -y
 flatpak install flathub com.obsproject.Studio -y
 
 # Other
