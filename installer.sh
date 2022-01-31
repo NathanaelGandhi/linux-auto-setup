@@ -118,6 +118,8 @@ flatpak update -y
 # SNAP INSTALLS
 echo "SNAP INSTALLS"
 sudo snap install brave
+echo "INSTALLING BITWARDEN"
+sudo snap install bitwarden
 
 # FLATPAK INSTALLS
 echo "FLATPAK INSTALLS"
@@ -152,8 +154,9 @@ flatpak install flathub org.videolan.VLC -y
 flatpak install flathub com.github.PintaProject.Pinta -y
 flatpak install flathub org.gimp.GIMP -y
 flatpak install flathub org.kde.kdenlive -y
-flatpak install flathub org.blender.Blender -y
+#flatpak install flathub org.blender.Blender -y
 flatpak install flathub com.obsproject.Studio -y
+#flatpak install flathub com.cuperino.qprompt -y
 
 # Other
 flatpak install flathub com.spotify.Client -y
