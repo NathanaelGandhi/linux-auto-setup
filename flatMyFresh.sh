@@ -24,14 +24,6 @@ declare -a myArray=(
 		"com.obsproject.Studio/x86_64/stable"
 		)
 
-# Add remotes
-if [ "$add_remotes" = true ] ; then
-	echo "Adding flathub remote"
-	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo;
-	echo "Adding flathub-beta remote"
-	flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo;
-fi
-
 # Distro ARCH specific
 if [ "$distro_arch" = true ] ; then
 	echo "Distro: ARCH selected"
@@ -46,6 +38,14 @@ if [ "$distro_arch" = true ] ; then
 	sudo apt update
 	sudo apt install flatpak
 	sudo apt install gnome-software-plugin-flatpak
+fi
+
+# Add remotes
+if [ "$add_remotes" = true ] ; then
+	echo "Adding flathub remote"
+	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo;
+	echo "Adding flathub-beta remote"
+	flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo;
 fi
 
 # Install all packages
