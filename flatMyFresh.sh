@@ -27,6 +27,7 @@ declare -a myArray=(
 # Distro ARCH specific
 if [ "$distro_arch" = true ] ; then
 	echo "Distro: ARCH selected"
+	echo "Installing flatpak"
 	sudo pacman -S flatpak
 fi
 
