@@ -52,7 +52,7 @@ fi
 # Install all packages
 if [ "$install_all" = true ] ; then
 	for str in ${myArray[@]}; do
-		flatpak install $str -y --app --noninteractive
+		flatpak install $str -y --app
 	done
 fi
 
