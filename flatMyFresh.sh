@@ -27,8 +27,12 @@ declare -a myArray=(
 # Distro ARCH specific
 if [ "$distro_arch" = true ] ; then
 	echo "Distro: ARCH selected"
-	echo "Installing flatpak"
-	sudo pacman -S flatpak
+	echo "Updating the system..."
+	sudo pacman -Syu
+	echo "Installing flatpak, git, zsh, wget, neofetch terminator"
+	sudo pacman -S flatpak git zsh wget neofetch terminator
+	echo "Installing ohmyzsh"
+	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 # Distro UBUNTU specific
