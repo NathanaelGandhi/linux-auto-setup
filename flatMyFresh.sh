@@ -2,12 +2,18 @@
 
 # Declare vars
 add_remotes="true";
-distro_arch="true";
-distro_ubuntu="false";
 install_all="true";
 
+# Check for the distro
+if [ -f /etc/os-release ]; then
+    # freedesktop.org and systemd
+    . /etc/os-release
+    OS=$NAME
+    VER=$VERSION_ID
+fi
+
 # Packages to install
-declare -a myArray=(
+declare -a flatpackApps=(
 		"com.github.tchx84.Flatseal/x86_64/stable"
 		"com.getferdi.Ferdi/x86_64/stable"
 		"com.brave.Browser"
@@ -25,8 +31,8 @@ declare -a myArray=(
 		)
 
 # Distro ARCH specific
-if [ "$distro_arch" = true ] ; then
-	echo "Distro: ARCH selected"
+if [ "$OS" = "Arch Linux" ]; then
+	echo "Distro: ARCH detected"
 	echo "Updating the system..."
 	sudo pacman -Syu
 	echo "Installing flatpak, git, zsh, wget, neofetch terminator"
@@ -36,8 +42,8 @@ if [ "$distro_arch" = true ] ; then
 fi
 
 # Distro UBUNTU specific
-if [ "$distro_arch" = true ] ; then
-	echo "Distro: UBUNTU selected"
+if [ "$OS" = "Ubuntu" ]; then
+	echo "Distro: UBUNTU detected"
 	sudo apt install flatpak
 	sudo add-apt-repository ppa:flatpak/stable
 	sudo apt update
@@ -46,7 +52,7 @@ if [ "$distro_arch" = true ] ; then
 fi
 
 # Add remotes
-if [ "$add_remotes" = true ] ; then
+if [ "$add_remotes" = true ]; then
 	echo "Adding flathub remote"
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo;
 	echo "Adding flathub-beta remote"
@@ -54,8 +60,8 @@ if [ "$add_remotes" = true ] ; then
 fi
 
 # Install all packages
-if [ "$install_all" = true ] ; then
-	for str in ${myArray[@]}; do
+if [ "$install_all" = true ]; then
+	for str in ${flatpackApps[@]}; do
 		flatpak install $str -y --app
 	done
 fi
