@@ -1,15 +1,19 @@
 #!/bin/bash
 
 # Declare vars
-add_remotes="true";
-install_all="true";
+add_remotes="false";
+install_all="false";
 
 # Check for the distro
-if [ -f /etc/os-release ]; then
+echo "Checking distro"
+if [ -r /etc/os-release ]; then
     # freedesktop.org and systemd
     . /etc/os-release
     OS=$NAME
     VER=$VERSION_ID
+    echo "Detected: $OS"
+else
+    echo "Didnt find /etc/os-release"
 fi
 
 # Packages to install
@@ -41,36 +45,31 @@ declare -a packageManagerApps=(
 
 # Distro ARCH specific
 if [ "$OS" = "Arch Linux" ]; then
-	echo "Distro: ARCH detected"
+	echo "Distro: ARCH LINUX specific install"
 	echo "Updating the system..."
 	sudo pacman -Syu
-	for str in ${packageManagerApps[@]}; do
-		echo "Installing $str"
-		sudo pacman -S install $str -y
-	done
+	add_remotes="true";
+	install_all="true";
 fi
 
 # Distro FEDORA specific
-if [ "$OS" = "Fedora" ]; then
-	echo "Distro: Fedora detected"
+if [ "$OS" = "Fedora Linux" ]; then
+	echo "Distro: FEDORA LINUX specific install"
 	echo "Updating the system..."
 	sudo dnf update -y
-	for str in ${packageManagerApps[@]}; do
-		echo "Installing $str"
-		sudo dnf install $str -y
-	done
+	add_remotes="true";
+	install_all="true";
 fi
 
 # Distro UBUNTU specific
 if [ "$OS" = "Ubuntu" ]; then
-	echo "Distro: UBUNTU detected"
+	echo "Distro: UBUNTU specific install"
 	sudo add-apt-repository ppa:flatpak/stable
-	sudo apt update
-	for str in ${packageManagerApps[@]}; do
-		echo "Installing $str"
-		sudo apt install $str -y
-	done
+	echo "Updating the system..."
+	sudo apt update -y && sudo apt upgrade -y
 	sudo apt install gnome-software-plugin-flatpak
+	add_remotes="true";
+	install_all="true";
 fi
 
 # Add remotes
@@ -83,6 +82,17 @@ fi
 
 # Install all packages
 if [ "$install_all" = true ]; then
+	for str in ${packageManagerApps[@]}; do
+		echo "Installing $str"
+		if [ "$OS" = "Ubuntu" ]; then
+			sudo apt install $str -y
+		elif  [ "$OS" = "Fedora Linux" ]; then
+			sudo dnf install $str -y
+		elif  [ "$OS" = "Arch Linux" ]; then
+			sudo pacman -S install $str -y
+		fi
+	done
+
 	for str in ${flatpackApps[@]}; do
 		echo "Installing $str"
 		flatpak install $str -y --app
@@ -90,4 +100,3 @@ if [ "$install_all" = true ]; then
 	echo "Installing ohmyzsh"
 	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
-
