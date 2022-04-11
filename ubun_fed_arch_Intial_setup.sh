@@ -29,25 +29,47 @@ declare -a flatpackApps=(
 		"org.kde.kdenlive/x86_64/stable"
 		"com.obsproject.Studio/x86_64/stable"
 		)
+		
+declare -a packageManagerApps=(
+		"flatpak"
+		"git"
+		"zsh"
+		"wget"
+		"neofetch"
+		"terminator"
+		)
 
 # Distro ARCH specific
 if [ "$OS" = "Arch Linux" ]; then
 	echo "Distro: ARCH detected"
 	echo "Updating the system..."
 	sudo pacman -Syu
-	echo "Installing flatpak, git, zsh, wget, neofetch terminator"
-	sudo pacman -S flatpak git zsh wget neofetch terminator
-	echo "Installing ohmyzsh"
-	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	for str in ${packageManagerApps[@]}; do
+		echo "Installing $str"
+		sudo pacman -S install $str -y
+	done
+fi
+
+# Distro FEDORA specific
+if [ "$OS" = "Fedora" ]; then
+	echo "Distro: Fedora detected"
+	echo "Updating the system..."
+	sudo dnf update -y
+	for str in ${packageManagerApps[@]}; do
+		echo "Installing $str"
+		sudo dnf install $str -y
+	done
 fi
 
 # Distro UBUNTU specific
 if [ "$OS" = "Ubuntu" ]; then
 	echo "Distro: UBUNTU detected"
-	sudo apt install flatpak
 	sudo add-apt-repository ppa:flatpak/stable
 	sudo apt update
-	sudo apt install flatpak
+	for str in ${packageManagerApps[@]}; do
+		echo "Installing $str"
+		sudo apt install $str -y
+	done
 	sudo apt install gnome-software-plugin-flatpak
 fi
 
@@ -55,14 +77,17 @@ fi
 if [ "$add_remotes" = true ]; then
 	echo "Adding flathub remote"
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo;
-	echo "Adding flathub-beta remote"
-	flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo;
+#	echo "Adding flathub-beta remote"
+#	flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo;
 fi
 
 # Install all packages
 if [ "$install_all" = true ]; then
 	for str in ${flatpackApps[@]}; do
+		echo "Installing $str"
 		flatpak install $str -y --app
 	done
+	echo "Installing ohmyzsh"
+	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
