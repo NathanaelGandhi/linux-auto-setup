@@ -41,6 +41,7 @@ declare -a packageManagerApps=(
 		"wget"
 		"neofetch"
 		"terminator"
+		"util-linux-user"
 		)
 
 # Distro ARCH specific
@@ -97,6 +98,10 @@ if [ "$install_all" = true ]; then
 		echo "Installing $str"
 		flatpak install $str -y --app
 	done
+	echo "Make zsh the default shell"
+	chsh -s $(which zsh)
 	echo "Installing ohmyzsh"
 	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	echo ""
+	echo "Installation complete. Please REBOOT your system."
 fi
