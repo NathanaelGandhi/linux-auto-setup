@@ -17,11 +17,12 @@ else
 fi
 
 # Packages to install
-declare -a flatpackApps=(
+# FOSS flatpaks
+declare -a flatpakApps=(
 		"com.github.tchx84.Flatseal/x86_64/stable"
 		"com.getferdi.Ferdi/x86_64/stable"
 		"com.brave.Browser"
-		"org.libreoffice.LibreOffice/x86_64/stable"
+		"org.onlyoffice.desktopeditors"
 		"org.gimp.GIMP/x86_64/stable"
 		"com.spotify.Client/x86_64/stable"
 		"com.vscodium.codium/x86_64/stable"
@@ -32,6 +33,11 @@ declare -a flatpackApps=(
 		"org.freecadweb.FreeCAD/x86_64/stable"
 		"org.kde.kdenlive/x86_64/stable"
 		"com.obsproject.Studio/x86_64/stable"
+		)
+# Proprieatry flatpaks		
+declare -a flatpakPropApps=(
+		"com.spotify.Client/x86_64/stable"
+		"app/com.dropbox.Client/x86_64/stable"
 		)
 		
 declare -a packageManagerApps=(
@@ -93,8 +99,13 @@ if [ "$install_all" = true ]; then
 			sudo pacman -S install $str -y
 		fi
 	done
-
-	for str in ${flatpackApps[@]}; do
+	# Install FOSS flatpaks
+	for str in ${flatpakApps[@]}; do
+		echo "Installing $str"
+		flatpak install $str -y --app
+	done
+	# Install proprieatry flatpaks
+	for str in ${flatpakPropApps[@]}; do
 		echo "Installing $str"
 		flatpak install $str -y --app
 	done
