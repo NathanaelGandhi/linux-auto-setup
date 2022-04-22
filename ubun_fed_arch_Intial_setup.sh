@@ -26,7 +26,6 @@ declare -a flatpakApps=(
 		"org.gimp.GIMP/x86_64/stable"
 		"org.inkscape.Inkscape"
 		"com.github.PintaProject.Pinta"
-		"com.spotify.Client/x86_64/stable"
 		"com.vscodium.codium/x86_64/stable"
 		"com.github.phase1geo.minder/x86_64/stable"
 		"org.qgis.qgis/x86_64/stable"
