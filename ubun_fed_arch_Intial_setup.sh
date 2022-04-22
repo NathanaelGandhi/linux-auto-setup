@@ -23,6 +23,7 @@ declare -a flatpakApps=(
 		"com.getferdi.Ferdi/x86_64/stable"
 		"com.brave.Browser"
 		"org.onlyoffice.desktopeditors"
+		"com.nextcloud.desktopclient.nextcloud"
 		"org.gimp.GIMP/x86_64/stable"
 		"org.inkscape.Inkscape"
 		"com.github.PintaProject.Pinta"
