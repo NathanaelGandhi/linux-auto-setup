@@ -49,6 +49,7 @@ declare -a packageManagerApps=(
 		"neofetch"
 		"terminator"
 		"util-linux-user"
+		"htop"
 		)
 
 # Distro ARCH specific
