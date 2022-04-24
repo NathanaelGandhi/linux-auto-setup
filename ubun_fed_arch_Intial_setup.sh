@@ -20,7 +20,6 @@ fi
 # FOSS flatpaks
 declare -a flatpakApps=(
 		"com.github.tchx84.Flatseal/x86_64/stable"
-		"com.getferdi.Ferdi/x86_64/stable"
 		"com.brave.Browser"
 		"org.onlyoffice.desktopeditors"
 		"com.nextcloud.desktopclient.nextcloud"
