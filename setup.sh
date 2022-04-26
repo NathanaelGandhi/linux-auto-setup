@@ -33,6 +33,7 @@ declare -a flatpakApps=(
 		"org.freecadweb.FreeCAD/x86_64/stable"
 		"org.kde.kdenlive/x86_64/stable"
 		"com.obsproject.Studio/x86_64/stable"
+		"net.cozic.joplin_desktop"
 		)
 # Proprieatry flatpaks		
 declare -a flatpakPropApps=(
